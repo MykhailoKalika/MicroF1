@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NgForOf, NgIf} from '@angular/common';
@@ -13,6 +13,7 @@ import {NgForOf, NgIf} from '@angular/common';
   ],
   templateUrl: './higher-education.component.html',
   styleUrl: './higher-education.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HigherEducationComponent {
 

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {Router} from '@angular/router';
@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
     ReactiveFormsModule,
   ],
   templateUrl: './about-me.component.html',
-  styleUrl: './about-me.component.scss'
+  styleUrl: './about-me.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutMeComponent {
 

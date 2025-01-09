@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NgForOf, NgIf} from '@angular/common';
@@ -11,7 +11,8 @@ import {NgForOf, NgIf} from '@angular/common';
     NgIf,
     NgForOf
   ],
-  styleUrls: ['./education.component.scss']
+  styleUrls: ['./education.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent {
   userForm: FormGroup;
