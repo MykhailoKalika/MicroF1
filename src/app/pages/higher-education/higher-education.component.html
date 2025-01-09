@@ -1,0 +1,82 @@
+<section class="form-section education-section">
+  <h2>Higher Education</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="education">
+      <div *ngFor="let block of educationBlocks.controls; let i = index" [formGroupName]="i" class="form-group">
+        <div class="form-group">
+          <label for="institution{{i}}">Institution</label>
+          <input
+            type="text"
+            id="institution{{i}}"
+            class="form-control"
+            placeholder="Enter institution name"
+            formControlName="institution"
+          />
+          <div *ngIf="block.get('institution')?.touched && block.get('institution')?.invalid">
+            <small class="text-danger" *ngIf="block.get('institution')?.hasError('required')">Institution name is
+              required.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="degree{{i}}">Institution</label>
+          <input
+            type="text"
+            id="degree{{i}}"
+            class="form-control"
+            placeholder="Enter degree"
+            formControlName="degree"
+          />
+          <div *ngIf="block.get('degree')?.touched && block.get('degree')?.invalid">
+            <small class="text-danger" *ngIf="block.get('degree')?.hasError('required')">Degree is
+              required.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="startYear{{i}}">Start Year</label>
+          <input
+            type="number"
+            id="startYear{{i}}"
+            class="form-control"
+            placeholder="Enter start year"
+            formControlName="startYear"
+          />
+          <div *ngIf="block.get('startYear')?.touched && block.get('startYear')?.invalid">
+            <small class="text-danger" *ngIf="block.get('startYear')?.hasError('required')">Start year is
+              required.</small>
+            <small class="text-danger" *ngIf="block.get('startYear')?.hasError('min')">Year cannot be less than
+              1900.</small>
+            <small class="text-danger" *ngIf="block.get('startYear')?.hasError('max')">Year cannot be greater than
+              current
+              year.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="endYear{{i}}">End Year</label>
+          <input
+            type="number"
+            id="endYear{{i}}"
+            class="form-control"
+            placeholder="Enter end year"
+            formControlName="endYear"
+          />
+          <div *ngIf="block.get('endYear')?.touched && block.get('endYear')?.invalid">
+            <small class="text-danger" *ngIf="block.get('endYear')?.hasError('required')">End year is required.</small>
+            <small class="text-danger" *ngIf="block.get('endYear')?.hasError('min')">Year cannot be less than
+              1900.</small>
+            <small class="text-danger" *ngIf="block.get('endYear')?.hasError('max')">Year cannot be greater than current
+              year.</small>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-danger" (click)="removeBlock(i)">&#10005;</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="addBlock()">+</button>
+
+    <button type="submit" class="btn btn-primary">Next</button>
+  </form>
+</section>
