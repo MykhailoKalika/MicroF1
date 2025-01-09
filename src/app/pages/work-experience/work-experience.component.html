@@ -1,34 +1,34 @@
-<section class="form-section education-section">
-  <h2>Higher Education</h2>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-    <div formArrayName="education">
-      <div *ngFor="let block of educationBlocks.controls; let i = index" [formGroupName]="i" class="form-group">
+<section class="form-section work-experience-section">
+  <h2>Work Experience</h2>
+  <form [formGroup]="workExperienceForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="work">
+      <div *ngFor="let block of placeOfWorkBlocks.controls; let i = index" [formGroupName]="i" class="form-group">
         <div class="form-group">
-          <label for="institution{{i}}">Institution</label>
+          <label for="placeOfWork{{i}}">Place of work</label>
           <input
             type="text"
-            id="institution{{i}}"
+            id="placeOfWork{{i}}"
             class="form-control"
-            placeholder="Enter institution name"
-            formControlName="institution"
+            placeholder="Enter place of work name"
+            formControlName="placeOfWork"
           />
-          <div *ngIf="block.get('institution')?.touched && block.get('institution')?.invalid">
-            <small class="text-danger" *ngIf="block.get('institution')?.hasError('required')">Institution name is
+          <div *ngIf="block.get('placeOfWork')?.touched && block.get('placeOfWork')?.invalid">
+            <small class="text-danger" *ngIf="block.get('placeOfWork')?.hasError('required')">Place of work is
               required.</small>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="degree{{i}}">Degree</label>
+          <label for="position{{i}}">Position</label>
           <input
             type="text"
-            id="degree{{i}}"
+            id="position{{i}}"
             class="form-control"
-            placeholder="Enter degree"
-            formControlName="degree"
+            placeholder="Enter position"
+            formControlName="position"
           />
-          <div *ngIf="block.get('degree')?.touched && block.get('degree')?.invalid">
-            <small class="text-danger" *ngIf="block.get('degree')?.hasError('required')">Degree is
+          <div *ngIf="block.get('position')?.touched && block.get('position')?.invalid">
+            <small class="text-danger" *ngIf="block.get('position')?.hasError('required')">Position is
               required.</small>
           </div>
         </div>
@@ -77,6 +77,6 @@
 
     <button type="button" class="btn btn-primary" (click)="addBlock()">+</button>
 
-    <button type="submit" class="btn btn-primary">Next</button>
+    <button type="submit" class="btn btn-primary">Result</button>
   </form>
 </section>
