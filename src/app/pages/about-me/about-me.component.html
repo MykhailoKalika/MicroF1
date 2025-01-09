@@ -1,0 +1,78 @@
+<section class="form-section about-me">
+  <h2>Про мене</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="firstName">Ім'я</label>
+      <input
+        type="text"
+        id="firstName"
+        class="form-control"
+        placeholder="Введіть ваше ім'я"
+        formControlName="firstName"
+      />
+      <div *ngIf="userForm.get('firstName')?.touched && userForm.get('firstName')?.invalid">
+        <small class="text-danger" *ngIf="userForm.get('firstName')?.hasError('required')">Ім'я є обов'язковим.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Прізвище</label>
+      <input
+        type="text"
+        id="lastName"
+        class="form-control"
+        placeholder="Введіть ваше прізвище"
+        formControlName="lastName"
+      />
+      <div *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.invalid">
+        <small class="text-danger" *ngIf="userForm.get('lastName')?.hasError('required')">Прізвище є обов'язковим.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Дата народження</label>
+      <input
+        type="text"
+        id="dob"
+        class="form-control"
+        placeholder="Оберіть вашу дату народження"
+        formControlName="dob"
+      />
+      <div *ngIf="userForm.get('dob')?.touched && userForm.get('dob')?.invalid">
+        <small class="text-danger" *ngIf="userForm.get('dob')?.hasError('required')">Дата народження є обов'язковою.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Введіть ваш email"
+        formControlName="email"
+      />
+      <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+        <small class="text-danger" *ngIf="userForm.get('email')?.hasError('required')">Email є обов'язковим.</small>
+        <small class="text-danger" *ngIf="userForm.get('email')?.hasError('email')">Невірний формат email.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Номер телефону</label>
+      <input
+        type="text"
+        id="phone"
+        class="form-control"
+        placeholder="Введіть ваш номер телефону"
+        formControlName="phone"
+      />
+      <div *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.invalid">
+        <small class="text-danger" *ngIf="userForm.get('phone')?.hasError('required')">Номер телефону є обов'язковим.</small>
+        <small class="text-danger" *ngIf="userForm.get('phone')?.hasError('pattern')">Невірний формат номера телефону.</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Далі</button>
+  </form>
+</section>
