@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-about-me',
@@ -15,7 +16,7 @@ export class AboutMeComponent {
 
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.userForm = this.fb.group({
       firstName: new FormControl<string>('', [Validators.required]),
       lastName: new FormControl<string>('', [Validators.required]),
@@ -31,6 +32,7 @@ export class AboutMeComponent {
 
     if (this.userForm.valid) {
       console.log('Form Submitted!', this.userForm.value);
+      this.router.navigate(['/education']);
     } else {
       console.log('Form is invalid!');
     }
