@@ -1,6 +1,6 @@
 <section class="form-section education-section">
   <h2>Higher Education</h2>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
     <div formArrayName="education">
       <div *ngFor="let block of educationBlocks.controls; let i = index" [formGroupName]="i" class="form-group">
         <div class="form-group">

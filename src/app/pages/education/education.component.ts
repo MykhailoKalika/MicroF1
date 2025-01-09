@@ -15,10 +15,10 @@ import {NgForOf, NgIf} from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent {
-  userForm: FormGroup;
+  educationForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {
-    this.userForm = this.fb.group({
+    this.educationForm = this.fb.group({
       education: this.fb.array([this.createEducationBlock()]),
       hasHigherEducation: [false]
     });
@@ -33,7 +33,7 @@ export class EducationComponent {
   }
 
   get educationBlocks(): FormArray {
-    return this.userForm.get('education') as FormArray;
+    return this.educationForm.get('education') as FormArray;
   }
 
   addBlock(): void {
@@ -45,10 +45,10 @@ export class EducationComponent {
   }
 
   onSubmit(): void {
-    this.userForm.markAllAsTouched();
+    this.educationForm.markAllAsTouched();
 
-    if (this.userForm.valid) {
-      if (this.userForm.get('hasHigherEducation')?.value) {
+    if (this.educationForm.valid) {
+      if (this.educationForm.get('hasHigherEducation')?.value) {
         this.router.navigate(['/higher-education']);
       } else {
         this.router.navigate(['/work-experience']);

@@ -17,10 +17,10 @@ import {NgForOf, NgIf} from '@angular/common';
 })
 export class HigherEducationComponent {
 
-  userForm: FormGroup;
+  educationForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {
-    this.userForm = this.fb.group({
+    this.educationForm = this.fb.group({
       education: this.fb.array([this.createEducationBlock()]),
     });
   }
@@ -35,7 +35,7 @@ export class HigherEducationComponent {
   }
 
   get educationBlocks(): FormArray {
-    return this.userForm.get('education') as FormArray;
+    return this.educationForm.get('education') as FormArray;
   }
 
   addBlock(): void {
@@ -47,9 +47,9 @@ export class HigherEducationComponent {
   }
 
   onSubmit(): void {
-    this.userForm.markAllAsTouched();
+    this.educationForm.markAllAsTouched();
 
-    if (this.userForm.valid) {
+    if (this.educationForm.valid) {
       this.router.navigate(['/work-experience']);
     }
   }

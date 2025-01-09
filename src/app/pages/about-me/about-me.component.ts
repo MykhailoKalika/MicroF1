@@ -32,10 +32,7 @@ export class AboutMeComponent {
     event.preventDefault();
 
     if (this.userForm.valid) {
-      console.log('Form Submitted!', this.userForm.value);
       this.router.navigate(['/education']);
-    } else {
-      console.log('Form is invalid!');
     }
   }
 }
